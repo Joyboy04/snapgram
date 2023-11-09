@@ -18,7 +18,7 @@ const SigninForm = () => {
   const { checkAuthUser, isLoading: isUserLoading } = useUserContext();
   const navigate = useNavigate();
 
-  const { mutateAsync: signInAccount } = 
+  const { mutateAsync: signInAccount, isPending: isSigningIn } = 
   useSignInAccount();
 
     // 1. Define your form.
@@ -89,7 +89,7 @@ const SigninForm = () => {
           )}
         />
         <Button type="submit" className="shad-button_primary">
-        {isUserLoading ? (
+        {isSigningIn ? (
           <div className="flex-center gap-2">
             <Loader />loading...
           </div>
